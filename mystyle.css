@@ -17,7 +17,11 @@ p{
 img{
     max-width: 100%;
 }
-
+li {
+  display: flex;
+  flex-direction: column; /* stack items vertically */
+  align-items: center;    /* center them horizontally */
+}
 /*Utilities*/
 .container{
     width: 85%;
@@ -56,8 +60,18 @@ header{
     display: flex;
     justify-content: center;
 }
-.house-container{
-
+.houses-container{
+    display: flex;           /* lays items horizontally */
+    justify-content: center;  /* optional: aligns items to the left */
+    gap: 10px;               /* adds space between the li items */
+    padding: 10px;
+    margin: 0;
+    align-items: center; 
+}
+.houses-container li {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* space between icon and number */
 }
 .house-item{
     background-color:#dedede;
