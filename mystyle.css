@@ -1,9 +1,13 @@
+/* RESET AND BASE STYLES */
 *{
     margin:0;
+    box-sizing: border-box; 
 }
 
 body{
-    font-family:arial;
+    font-family:arial, sans-serif;
+    background-color: #f4f4f4; 
+    color: #333;
 }
 
 a{
@@ -16,66 +20,190 @@ p{
 }
 img{
     max-width: 100%;
+    height: auto; 
 }
 li {
-  display: flex;
-  flex-direction: column; /* stack items vertically */
-  align-items: center;    /* center them horizontally */
+    list-style: none; 
 }
-/*Utilities*/
+h1, h2, h3 {
+    color: #1a4d6e; 
+}
+
+/* UTILITIES */
 .container{
-    width: 85%;
+    width: 90%; 
+    max-width: 1200px; 
     margin: 20px auto;
 }
 .btn{
     display: block;
     width: 100%;
     background-color: orange;
-    padding: 5px;
+    padding: 10px 5px; 
     text-align: center;
-    font-size: 12px;
+    font-size: 14px; 
+    font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+.btn:hover {
+    background-color: #e67e22; 
 }
 
-/*header*/
+/* HEADER */
 header{
     background-image: url(./img/header.jpg);
-    height:400px;
+    height: 400px;
     background-size: cover;
+    background-position: center; 
     color: white;
     text-align:center;
+    padding-top: 20px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
 }
-
+header h1 {
+    margin: 0;
+}
+header p {
+    font-size: 1.2em;
+    padding-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.4); 
+    margin-top: auto; 
+    padding: 15px;
+}
 .menu-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    width: 90%; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+nav a{
+    margin-left: 15px;
+    font-weight: bold;
+}
+nav a:hover {
+    color: orange;
 }
 
 
-/*main*/
-
+/* About Section & House Grid */
 .about-container{
-    display: flex;
-    justify-content: center;
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-top: 30px;
 }
-.houses-container{
-    display: flex;           /* lays items horizontally */
-    justify-content: center;  /* optional: aligns items to the left */
-    gap: 10px;               /* adds space between the li items */
-    padding: 10px;
-    margin: 0;
-    align-items: center; 
+.about-container > div {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-.houses-container li {
-    display: flex;
-    align-items: center;
-    gap: 5px; /* space between icon and number */
+.about-container img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
 }
+
+
+/* House Item Styles */
 .house-item{
-    background-color:#dedede;
+    background-color: white; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.house-item img {
+    height: 200px; 
+    object-fit: cover;
 }
 .house-item-text{
     padding: 20px;
+}
+.house-item-text h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+}
+.house-item-text p:nth-of-type(2) { /* Price paragraph */
+    font-weight: bold;
+    color: #27ae60; 
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+.houses-container{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    margin: 15px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.houses-container li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+.houses-container li img {
+    width: 20px;
+    height: 20px;
+}
+.houses-container li p {
+    margin: 0;
+    font-weight: bold;
+}
+
+
+
+
+/* Tablet*/
+@media (min-width: 768px) {
+    .about-container {
+        grid-template-columns: repeat;
+    }
+}
+
+/* Mobile  */
+@media (max-width: 767px) {
+    .menu-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav {
+        margin-top: 15px;
+    }
+    nav a {
+        display: block; 
+        margin: 5px 0;
+        padding: 5px 0;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    
+    /* MAIN CONTENT: Switch to single-column layout */
+    .container {
+        width: 95%; 
+    }
+    
+    .about-container {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    /* House Item specifics for better mobile experience */
+    .house-item img {
+        height: 250px; 
+    }
+
+    .houses-container {
+        justify-content: space-between; 
+    }
 }
